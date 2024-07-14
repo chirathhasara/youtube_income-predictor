@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'main/css/home.css' %}">
+  <title>Document</title>
+</head>
+<body>
+  {% block content %}
+  <div class="header">
+    <div class="left-section">
+      <img class="logo"  src="{% static 'main/images/youtube-logo.jpg' %}">
+    </div>
+
+    <div class="midlle-section">
+      <div>YouTube Income Predictor</div>
+      <div>Sri Lanka</div>
+    </div>
+
+    <div class="right-section">
+      <a href=""><div class="button-right"><button type="button" class="btn btn-outline-warning">Home</button></div></a>
+      <a href=""><div class="button-right"><button type="button" class="btn btn-outline-warning">Login</button></div></a>
+    </div>
+  </div>
+
+  <div class="interface">
+    <div><img class="logo-sl"  src="{% static 'main/images/sri-lanka.avif' %}"></div>
+    
+    <form method="post">
+      {% csrf_token %}
+    <div class="form">
+      <div>Enter the number of subscribers</div>
+      <div><input class="form-format" type="text"  name="subscribers"></div>
+
+      <div>Enter the total videos</div>
+      <div><input  class="form-format"  type="text"  name="videos"></div>
+
+      <div class="submit-buttons"> 
+      <div><button type="submit" class="btn btn-outline-info">Predict</button></div>
+     </div>
+     <div><label class="label-styles">Your total views will be:<span class="veriable">{{views}}</span></label></div>
+     <div><label class="label-styles">Your total Income will be:Rs.<span  class="veriable">{{income}}</span></label></div>
+    </div>
+    </form>
+    <div><img class="logo-sl"  src="{% static 'main/images/youtube-pic.png' %}"></div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  {% endblock %}
+</body>
+</html>
